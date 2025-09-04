@@ -1,4 +1,5 @@
 function convertToJson(res) {
+
   if (res.ok) {
     return res.json();
   } else {
@@ -19,5 +20,6 @@ export default class ProductData {
   async findProductById(id) {
     const products = await this.getData();
     return products.find((item) => item.Id === id);
+
   }
 }

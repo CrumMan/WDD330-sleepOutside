@@ -1,6 +1,6 @@
 import { getLocalStorage } from "./utils.mjs";
-
 function renderCartContents() {
+ HEAD
   const cartItems = getLocalStorage("so-cart");
   const productList = document.querySelector(".product-list");
   if (!cartItems.length) {
@@ -9,6 +9,7 @@ function renderCartContents() {
   }
   const htmlItems = cartItems.map(cartItemTemplate);
   productList.innerHTML = htmlItems.join("");
+
 }
 
 function cartItemTemplate(item) {
@@ -25,6 +26,7 @@ function cartItemTemplate(item) {
   <p class='cart-card__color'>${item.Colors[0].ColorName}</p>
   <p class='cart-card__quantity'>qty: 1</p>
   <p class='cart-card__price'>$${item.FinalPrice}</p>
+
 </li>`;
 
   return newItem;

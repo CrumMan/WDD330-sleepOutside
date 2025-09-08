@@ -8,15 +8,15 @@ document.querySelector(".product-list").innerHTML = htmlItems.join("");
 }
 
 function cartItemTemplate(item) {
-  const newItem = `<li class="cart-card divider">
-  <a href="#" class="cart-card__image">
+  const newItem = `<li class='cart-card divider'>
+  <a href='#' class='cart-card__image'>
     <img
-      src="${item.Image}"
-      alt="${item.Name}"
+      src='${item.Image}'
+      alt='${item.Name}'
     />
   </a>
-  <a href="#">
-    <h2 class="card__name">${item.Name}</h2>
+  <a href='#'>
+    <h2 class='card__name'>${item.Name}</h2>
   </a>
   <p class="cart-card__color">${item.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">Quantity: ${item.quantity} </p>

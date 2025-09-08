@@ -23,6 +23,8 @@ function addProductToCart(product) {
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
+  let stringarray = JSON.stringify(selectedItems);
+  localStorage.setItem("selectedItems", stringarray);
 }
 
 // add listener to Add to Cart button

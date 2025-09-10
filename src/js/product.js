@@ -26,16 +26,12 @@ async function addToCartHandler(e) {
   localStorage.setItem("selectedItems", stringarray);
 }
 
-async function currentProduct(e){
-  const product = await dataSource.findProductById(e.target.dataset.id);
-  localStorage.setItem(product)
-
-}
 
 // add listener to Add to Cart button
+setTimeout(() =>{
 document
-  .getElementById("addToCart")
-  .addEventListener("click", addToCartHandler);
+.getElementById("addToCart").
+addEventListener("click", addToCartHandler);
+},100)
 
-  document.querySelector(".product-details")
-  .addEventListener("click", addToCartHandler);
+

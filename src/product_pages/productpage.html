@@ -9,8 +9,8 @@
 
     <link rel="stylesheet" href="../css/style.css" />
 
+    <script src="../test/product.test.js" type="module"></script>
     <script src="../js/product.js" type="module"></script>
-     <script src="../test/product.test.js" type="module"></script>
 </head>
 <body>
     <header class="divider">
@@ -53,46 +53,21 @@
       </div>
     </header>
 
-    <main class="divider">
-        <template>
+    <main  class="divider">
+      <template id="product_section">
             <section class="product-detail">
-                <h3 id="product_name"></h3>
-                <h2 class="divider"></h2>
-                <img class="divider"/>
+                <h3 class="product__brand"></h3>
+                <h2 class= product__name class="divider"></h2>
+                <img class="productImg"class="divider"/>
                 <p class="product-card__price"></p>
                 <p class="product__color"></p>
                 <p class="product__description"></p>
                 <div class="product-detail__add">
-                     <button id="addToCart">Add to Cart</button>
+                     <button data-Id="" id="addToCart">Add to Cart</button>
+                     </template>
                 </div>
+                <div class="product-list"></div>
             </section>
-        </template>
-
-      <!-- <section class="product-detail">
-        <h3>The North Face</h3>
-
-        <h2 class="divider">Talus Tent - 4-Person, 3-Season</h2>
-
-        <img
-          class="divider"
-          src="../images/tents/the-north-face-talus-tent-4-person-3-season-in-golden-oak-saffron-yellow~p~985rf_01~320.jpg"
-          alt="Talus Tent - 4-Person, 3-Season"
-        />
-
-        <p class="product-card__price">$199.99</p>
-
-        <p class="product__color">Golden Oak/Saffron Yellow</p>
-
-        <p class="product__description">
-          Enjoy a fun night under stars with your favorite people in The North
-          Face&#39;s Talus four-person tent, featuring durable construction with
-          a roomy interior, an advanced DAC Featherlite NSL pole system and an
-          easy to pitch design.
-        </p>
-
-        <div class="product-detail__add">
-          <button id="addToCart" data-id="989CG">Add to Cart</button>
-        </div> -->
       </section>
     </main>
 

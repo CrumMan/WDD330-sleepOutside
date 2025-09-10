@@ -1,4 +1,4 @@
-
+async function loadProduct() {
     const response = await fetch('./json/tents.json')
     const tents = await response.json();
     const template = document.getElementById('product-card');
@@ -26,3 +26,5 @@
         const productContainer = document.querySelector('.product-list');
         productContainer.appendChild(clone);
     });
+}
+loadProduct();

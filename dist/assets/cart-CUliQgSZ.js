@@ -1,4 +1,13 @@
-import"./style-HlQJNEhF.js";function r(a){return JSON.parse(localStorage.getItem(a))}function c(){const t=r("selectedItems").map(e=>n(e));document.querySelector(".product-list").innerHTML=t.join("")}function n(a){return`<li class='cart-card divider'>
+import "./style-HlQJNEhF.js";
+function r(a) {
+  return JSON.parse(localStorage.getItem(a));
+}
+function c() {
+  const t = r("selectedItems").map((e) => n(e));
+  document.querySelector(".product-list").innerHTML = t.join("");
+}
+function n(a) {
+  return `<li class='cart-card divider'>
   <a href='#' class='cart-card__image'>
     <img
       src='${a.Image}'
@@ -11,4 +20,6 @@ import"./style-HlQJNEhF.js";function r(a){return JSON.parse(localStorage.getItem
   <p class="cart-card__color">${a.Colors[0].ColorName}</p>
   <p class="cart-card__quantity">Quantity: ${a.quantity} </p>
   <p class="cart-card__price">$${a.FinalPrice}</p>
-</li>`}c();
+</li>`;
+}
+c();

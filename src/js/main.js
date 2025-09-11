@@ -1,5 +1,5 @@
 async function loadProduct() {
-    const response = await fetch('./json/tents.json')
+    const response = await fetch('/json/tents.json')
     const tents = await response.json();
     const template = document.getElementById('product-card');
     tents.forEach((tent) => {

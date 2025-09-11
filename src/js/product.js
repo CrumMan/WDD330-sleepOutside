@@ -6,15 +6,13 @@ let selectedItems = savedItems === null ? [] : JSON.parse(savedItems);
 const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
-  const existingItem = selectedItems.find(item => item.Id === product.Id)
+  const existingItem = selectedItems.find((item) => item.Id === product.Id);
   let productWithQuantity = product.quantity;
   if (!existingItem) {
     productWithQuantity = product.quantity = 1;
     product.productWithQuantity;
     selectedItems.push(product);
-  }
-  else {
-
+  } else {
     existingItem.quantity += 1;
   }
 }
@@ -27,12 +25,9 @@ async function addToCartHandler(e) {
   localStorage.setItem("selectedItems", stringarray);
 }
 
-
 // add listener to Add to Cart button
-setTimeout(() =>{
-document
-.getElementById("addToCart").
-addEventListener("click", addToCartHandler);
-},100)
-
-
+setTimeout(() => {
+  document
+    .getElementById("addToCart")
+    .addEventListener("click", addToCartHandler);
+}, 100);

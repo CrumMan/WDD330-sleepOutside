@@ -1,3 +1,6 @@
+import ProductData from "./ProductData.mjs";
+import ProductList from "./ProductList.mjs";
+
 async function loadProduct() {
   const response = await fetch("./json/tents.json");
   const tents = await response.json();

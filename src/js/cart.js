@@ -10,6 +10,7 @@ function renderCartContents() {
   productList.innerHTML = htmlItems.join("");
 
 
+
 }
 
 function cartItemTemplate(item) {

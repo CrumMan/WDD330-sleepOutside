@@ -1,8 +1,8 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
+  const cartItems = getLocalStorage("selectedItems");
   const productList = document.querySelector(".product-list");
-  if (!cartItems.length) {
+  if (cartItems.length > 0) {
     productList.innerHTML = "<p> Your cart is empty </p>";
     return;
   }
@@ -33,4 +33,6 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-renderCartContents();
+//renderCartContents();
+
+loadHeaderFooter();

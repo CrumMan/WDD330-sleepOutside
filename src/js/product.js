@@ -1,9 +1,9 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, loadHeaderFooter } from "./utils.mjs";
 const savedItems = new setLocalStorage("selectedItems");
 
-let selectedItems = savedItems === null ? [] : JSON.parse(savedItems);
+//let selectedItems = savedItems === null ? [] : JSON.parse(savedItems);
 
-const dataSource = new ProductData("tents");
+//const dataSource = new ProductData("tents");
 
 function addProductToCart(product) {
   const existingItem = selectedItems.find((item) => item.Id === product.Id);
@@ -31,3 +31,5 @@ setTimeout(() => {
     .getElementById("addToCart")
     .addEventListener("click", addToCartHandler);
 }, 100);
+
+loadHeaderFooter();

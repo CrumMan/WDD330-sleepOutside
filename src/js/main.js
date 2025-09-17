@@ -1,3 +1,5 @@
+import { loadHeaderFooter } from "./utils.mjs";
+
 async function loadProduct() {
   const response = await fetch("./json/tents.json");
   const tents = await response.json();
@@ -26,3 +28,5 @@ async function loadProduct() {
   });
 }
 loadProduct();
+
+loadHeaderFooter();

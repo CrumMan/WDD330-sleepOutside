@@ -5,6 +5,7 @@ export default defineConfig({
   root: "src/",
 
   build: {
+    target: 'esnext',
     outDir: "../dist",
     rollupOptions: {
       input: {
@@ -23,6 +24,10 @@ export default defineConfig({
         product4: resolve(
           __dirname,
           "src/product_pages/northface-talus-4.html",
+        ),
+        productpage: resolve(
+          __dirname,
+          "src/product_pages/productpage.html",
         ),
       },
     },

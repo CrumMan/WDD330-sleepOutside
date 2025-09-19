@@ -1,6 +1,6 @@
 import { getLocalStorage } from "./utils.mjs";
 function renderCartContents() {
-  const cartItems = getLocalStorage("so-cart");
+  const cartItems = getLocalStorage("selectedItems");
   const productList = document.querySelector(".product-list");
   if (!cartItems.length) {
     productList.innerHTML = "<p> Your cart is empty </p>";

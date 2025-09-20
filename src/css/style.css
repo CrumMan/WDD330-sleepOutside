@@ -91,7 +91,7 @@ p {
   font-size: var(--small-font);
   width: 110px;
   height: 80px;
-
+  margin: 0 auto;
   flex-direction: column;
   align-items: flex-end;
   box-shadow: 1px 1px 4px var(--light-grey);

@@ -61,7 +61,8 @@ p {
 }
 
 .hero {
-  position: relative;
+  display: block;
+  text-align: center;
 }
 
 .hero .logo {
@@ -98,7 +99,14 @@ p {
 .highlight {
   color: var(--tertiary-color);
 }
-
+.heroImages{
+  min-width: 100px;
+  width: 15%;
+  cursor: pointer;
+}
+.all_products{
+  color: black;
+}
 button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);

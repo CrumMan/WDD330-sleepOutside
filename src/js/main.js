@@ -1,5 +1,5 @@
 async function loadProduct() {
-  const response = await fetch("./json/tents.json");
+  const response = await fetch("json/tents.json");
   const tents = await response.json();
   const template = document.getElementById("product-card");
   tents.forEach((tent) => {
@@ -14,7 +14,7 @@ async function loadProduct() {
     hrefAndDetails.setAttribute("data-id", tent.id);
     brand.textContent = tent.Brand.Name;
     name.textContent = tent.Name;
-    photo.src = tent.Image.replace("../", "./");
+    photo.src = tent.Image;
     lp.textContent = tent.ListPrice;
 
     hrefAndDetails.addEventListener("click", function (event) {

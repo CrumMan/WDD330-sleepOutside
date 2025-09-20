@@ -1,6 +1,6 @@
 console.log("Test");
 
-const response = await fetch("../json/tents.json");
+const response = await fetch("json/tents.json");
 const tents = await response.json();
 const template = document.getElementById("product_section");
 const tentValue = localStorage.getItem("selectedTent");

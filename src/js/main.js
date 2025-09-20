@@ -10,8 +10,8 @@ async function loadProduct() {
     const lp = clone.querySelector(".product-card__price");
     const hrefAndDetails = clone.querySelector("a#href");
 
-    hrefAndDetails.href = tent.Href.replace("../", "");
-    hrefAndDetails.setAttribute("data-id", tent.id);
+    hrefAndDetails.href = `productpage.html?category=tents&Id=${tent.Id}`;
+    console.log(tent.Id);
     brand.textContent = tent.Brand.Name;
     name.textContent = tent.Name;
     photo.src = tent.Image;

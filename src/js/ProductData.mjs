@@ -12,10 +12,12 @@ export default class ProductData {
     this.category = category;
     this.path = `./json/${this.category}.json`;
   }
-  getData() {
+  async getData() {
     return fetch(this.path)
       .then(convertToJson)
-      .then((data) => data);
+      .then((data) => {
+        return data.Result||data
+      });
   }
   async findProductById(id) {
     const products = await this.getData();

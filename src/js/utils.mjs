@@ -61,3 +61,10 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footer_template, footer_element);
 
 }
+export async function getTotals() {
+  const items = getLocalStorage('selectedItems')||[];
+  let total=0;
+  items.forEach(item => {
+    total+= item.FinalPrice * item.quantity;});
+  return total;
+}

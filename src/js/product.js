@@ -1,4 +1,3 @@
-import { setLocalStorage } from "./utils.mjs";
 import ProductData from "./ProductData.mjs";
 const savedItems = localStorage.getItem("selectedItems");
 let selectedItems = savedItems === null ? [] : JSON.parse(savedItems);

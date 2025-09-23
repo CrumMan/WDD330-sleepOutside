@@ -40,7 +40,9 @@ header {
 p {
   padding: 0.75rem;
 }
-
+.Information{
+  text-align: center;
+}
 .logo {
   line-height: 60px;
   width: 245px;
@@ -60,7 +62,9 @@ p {
   text-decoration: none;
   color: var(--font-body);
 }
-
+#checkout{
+  text-decoration: none;
+}
 #hero {
   display: flex !important;
   flex-direction: row !important;
@@ -146,6 +150,7 @@ button {
   border: 0;
   font-size: var(--large-font);
   cursor: pointer;
+  text-decoration: none;
 }
 
 .divider {

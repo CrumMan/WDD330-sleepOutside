@@ -1,4 +1,4 @@
-import { setLocalStorage, getLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 import ProductData from "/js/ProductData.mjs";
 
 
@@ -42,3 +42,4 @@ setTimeout(() => {
     .addEventListener("click", addToCartHandler);
 }, 100);
 
+loadHeaderFooter();

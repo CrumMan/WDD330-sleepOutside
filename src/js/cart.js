@@ -1,4 +1,4 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 function renderCartContents() {
   const cartItems = getLocalStorage("selectedItems");
   const productList = document.querySelector(".product-list");
@@ -9,6 +9,8 @@ function renderCartContents() {
     productList.innerHTML = "<p> Your cart is empty </p>";
   }
   else {
+    const htmlItems = cartItems.map(cartItemTemplate);
+    productList.innerHTML = htmlItems.join("");
     // if there are items in the cart make the total visible and get the total cost of the items in the cart
     cart_total_container.style.visibility = "visible";
     let total = 0;
@@ -18,8 +20,7 @@ function renderCartContents() {
     //display total cost
     cart_total.textContent = "Total: $" + total;
   }
-  const htmlItems = cartItems.map(cartItemTemplate);
-  productList.innerHTML = htmlItems.join("");
+
 
 
 
@@ -46,3 +47,4 @@ function cartItemTemplate(item) {
 }
 
 renderCartContents();
+loadHeaderFooter();

@@ -1,3 +1,4 @@
+import { loadHeaderFooter } from "./utils.mjs";
 async function loadProduct() {
   const response = await fetch("./json/tents.json");
   const tents = await response.json();
@@ -33,8 +34,11 @@ window.addEventListener('load', () => {
   if (!sessionStorage.getItem('sessionStarted')) {
     //First time this session — clear the cart
     localStorage.clear();
+    localStorage.setItem("selectedItems", "[]");
 
     //Set the flag so it doesn't run again
     sessionStorage.setItem('sessionStarted', 'true');
   }
 });
+
+loadHeaderFooter();

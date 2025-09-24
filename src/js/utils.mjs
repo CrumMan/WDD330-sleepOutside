@@ -75,5 +75,5 @@ export async function loadHeaderFooter() {
   renderWithTemplate(footer_template, footer_element);
 
   //get the new element cart-sup and sets the HTML to the cart amount
-  document.getElementById("cart-sup").innerHTML = get_total_cart_items();
+  document.getElementById("cart-sup").innerHTML = get_total_cart_items() ?? 0;
 }

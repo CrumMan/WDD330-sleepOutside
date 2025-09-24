@@ -1,5 +1,6 @@
-import { setLocalStorage, getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage, loadHeaderFooter, getParam } from "./utils.mjs";
 import ProductData from "/js/ProductData.mjs";
+import ProductDetails from "./ProductDetails.mjs";
 
 
 
@@ -18,7 +19,15 @@ if (selectedItemsRaw && selectedItemsRaw !== "undefined") {
   localStorage.setItem("selectedItems", JSON.stringify(selectedItems)); // optional reset
 }
 
+loadHeaderFooter();
+
 const dataSource = new ProductData("tents");
+console.log(dataSource);
+const productID = getParam("product");
+console.log(productID);
+
+const product = new ProductDetails(productID, dataSource);
+product.init();
 
 function addProductToCart(product) {
   const existingItem = selectedItems.find((item) => item.Id === product.Id);
@@ -29,7 +38,7 @@ function addProductToCart(product) {
     existingItem.quantity += 1;
   }
   //reruns loadheaderfooter to update cart count
-  loadHeaderFooter()
+  loadHeaderFooter();
 }
 
 async function addToCartHandler(e) {
@@ -40,8 +49,7 @@ async function addToCartHandler(e) {
 
 setTimeout(() => {
   document
-    .getElementById("addToCart")
+    .getElementById("add-to-cart")
     .addEventListener("click", addToCartHandler);
 }, 100);
 
-loadHeaderFooter();

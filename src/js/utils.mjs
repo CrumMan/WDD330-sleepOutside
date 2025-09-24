@@ -22,6 +22,12 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
+export function getParam(param) {
+  const queryString = window.location.search;
+  const urlParams = new URLSearchParams(queryString);
+  const product = urlParams.get(param);
+  return product
+}
 
 export function renderListWithTemplate(
   templateFn,
@@ -30,8 +36,11 @@ export function renderListWithTemplate(
   position = "afterbegin",
   clear = false,
 ) {
-  const htmlStrings = list.map(productCardTemplate);
-  this.listElement.insertAdjacentHTML("afterbegin", htmlStrings.join(""));
+  const htmlStrings = list.map(templateFn);
+  if (clear) {
+    parentElement.innerHTML = "";
+  }
+  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
 }
 
 

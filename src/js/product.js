@@ -28,6 +28,8 @@ function addProductToCart(product) {
   } else {
     existingItem.quantity += 1;
   }
+  //reruns loadheaderfooter to update cart count
+  loadHeaderFooter()
 }
 
 async function addToCartHandler(e) {

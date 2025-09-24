@@ -1,4 +1,13 @@
 import { getLocalStorage, loadHeaderFooter, get_total_cart_items } from "./utils.mjs";
+import { packageItems } from "./CheckoutProcess.MJS";
+
+const checkout_form = document.getElementById("checkout-form")
+checkout_form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const product_list = getLocalStorage("selectedItems");
+    packageItems(product_list)
+})
+
 function renderCartContents() {
     const cartItems = getLocalStorage("selectedItems");
     const productList = document.querySelector(".product-list");
@@ -45,6 +54,7 @@ function cartItemTemplate(item) {
 
     return newItem;
 }
+
 
 renderCartContents();
 loadHeaderFooter();

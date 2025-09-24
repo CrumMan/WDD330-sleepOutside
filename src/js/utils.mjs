@@ -86,3 +86,15 @@ export async function loadHeaderFooter() {
   //get the new element cart-sup and sets the HTML to the cart amount
   document.getElementById("cart-sup").innerHTML = get_total_cart_items() ?? 0;
 }
+
+// takes a form element and returns an object where the key is the "name" of the form input.
+export function formDataToJSON(formElement) {
+  const formData = new FormData(formElement),
+    convertedJSON = {};
+
+  formData.forEach(function (value, key) {
+    convertedJSON[key] = value;
+  });
+
+  return convertedJSON;
+}

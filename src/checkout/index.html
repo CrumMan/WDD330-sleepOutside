@@ -38,7 +38,7 @@
     </p>
 
     <h3>Information</h3>
-    <form action="checkpage.html" method="GET">
+    <form id="checkout-form" action="checkpage.html" method="GET">
       <label for="fname">First Name:</label><br>
       <input required id="fname" type="text" name="fname"><br>
       <label for="lname">Last Name:</label><br>
@@ -49,12 +49,11 @@
       <input required id="city" type="text" name="city"><br>
       <label for="state">State</label><br>
       <input required id="state" type="text" name="state"><br>
-      <label for="zipcode">ZipCode:</label><br>
-      <input required id="zipcode" min="100000" max="999999" type="number" name="zipcode"><br>
-      <Label for="card">Credit Card Number:</Label><br>
-      <input required id="creditCardNumber" name="card" type="number" min="1000000000000000" max="9999999999999999"
-        name="card"><br>
-      <label for="Expiration">Expiration Date (MM/YY):</label>
+      <label for="zip">ZipCode:</label><br>
+      <input required id="zip" min="100000" max="999999" type="number" name="zip"><br>
+      <Label for="cardNumber">Credit Card Number:</Label><br>
+      <input required id="cardNumber" type="number" min="1000000000000000" max="9999999999999999" name="cardNumber"><br>
+      <label for="expiration">Expiration Date (MM/YY):</label>
       <select name="ExpirationMonth">
         <option value="01">01</option>
         <option value="02">02</option>
@@ -78,9 +77,9 @@
         <option value="30">30</option>
         <option value="31">31</option>
       </select><br>
-      <label for="cvv">CVV:</label><br>
-      <input required id="cvv" min="100" max="999" type="number" name="cvv"><br>
-      <input type="submit" value="Submit">
+      <label for="code">CVV:</label><br>
+      <input required id="code" min="100" max="999" type="number" name="code"><br>
+      <input id="submit" type="submit" value="Submit">
     </form>
   </section>
   <footer id="footer"></footer>

@@ -54,6 +54,16 @@ export async function loadTemplate(path) {
   return file_path;
 }
 
+//Calculate number of items in cart for Cart Superscript in header. 
+export function get_total_cart_items() {
+  const cart_items = getLocalStorage("selectedItems");
+  let cart_items_amount = 0;
+  for (let item of cart_items) {
+    cart_items_amount += item.quantity;
+  }
+  return cart_items_amount;
+}
+
 export async function loadHeaderFooter() {
   const header_template = await loadTemplate("../partials/header.html");
   const footer_template = await loadTemplate("../partials/footer.html");
@@ -64,4 +74,6 @@ export async function loadHeaderFooter() {
   renderWithTemplate(header_template, header_element);
   renderWithTemplate(footer_template, footer_element);
 
+  //get the new element cart-sup and sets the HTML to the cart amount
+  document.getElementById("cart-sup").innerHTML = get_total_cart_items();
 }

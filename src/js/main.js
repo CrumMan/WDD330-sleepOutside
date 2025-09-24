@@ -1,4 +1,7 @@
 import { loadHeaderFooter } from "./utils.mjs";
+import './ProductData.mjs';
+import './ProductDetails.mjs';
+import './ProductList.mjs';
 async function loadProduct() {
   const response = await fetch("./json/tents.json");
   const tents = await response.json();

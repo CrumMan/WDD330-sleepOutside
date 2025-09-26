@@ -1,4 +1,4 @@
-import { formDataToJSON, getLocalStorage } from "./utils.mjs";
+import { formDataToJSON, getLocalStorage, get_total_cart_items } from "./utils.mjs";
 
 // takes the items currently stored in the cart (localstorage) and returns them in a simplified form.
 export function packageItems(items) {
@@ -11,10 +11,10 @@ export function packageItems(items) {
             price: element.FinalPrice,
             quantity: element.quantity
         }
+        
     })
-    //console.log(converted_items);
     // An Array.map would be perfect for this process.
-
+    sessionStorage.setItem('package-items', JSON.stringify(converted_items))
 }
 
 export default class CheckoutProcess {
@@ -41,7 +41,7 @@ export default class CheckoutProcess {
         // calculate the total of all the items in the cart
         const amounts = this.list.map((item) => item.FinalPrice);
         this.itemTotal = amounts.reduce((sum, item) => sum + item);
-        summaryElement.innerText = `$${this.itemTotal}`;;
+        summaryElement.innerText = `$${this.itemTotal}`;
     }
 
     calculateOrderTotal() {
@@ -69,8 +69,9 @@ export default class CheckoutProcess {
         // convert the form data to a JSON order object using the formDataToJSON function
         const converted_form_data = formDataToJSON(formElement)
         console.log(converted_form_data)
-        // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items
+        // populate the JSON order object with the order Date, orderTotal, tax, shipping, and list of items0
+
         // call the checkout method in the ExternalServices module and send it the JSON order data.
     }
-
+    
 }

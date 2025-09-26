@@ -14,8 +14,18 @@
     <main class="divider">
         <section class="products">
             <h2>Top Products: <span class="title highlight"></span></h2>
+  
+            <label for="sort">Sort by:</label>
+            <select id="sort">
+                <option value="default">Default</option>
+                <option value="name">Name (A → Z)</option>
+                <option value="priceLowHigh">Price (Low → High)</option>
+                <option value="priceHighLow">Price (High → Low)</option>
+            </select>
+
             <ul class="product-list"></ul>
         </section>
+
     </main>
     <footer id="footer"></footer>
 </body>

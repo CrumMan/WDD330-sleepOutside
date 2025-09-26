@@ -305,3 +305,26 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+.products label {
+  font-weight: bold;
+  margin-right: 0.5em;
+}
+
+#sort {
+  padding: 0.4em 1em;
+  font-size: var(--font-base);
+  border: 1px solid var(--light-grey);
+  border-radius: 4px;
+  background-color: white;
+  color: var(--dark-grey);
+  cursor: pointer;
+  margin-bottom: 1rem;
+}
+
+
+#sort:hover,
+#sort:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+}

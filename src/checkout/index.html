@@ -31,14 +31,15 @@
   <section class="information">
     <h2>Review & Place your Order</h2>
     <h3>Order Info</h3>
-    <p><strong>Subtotal:</strong> <a id="subtotal"></a>
-      <br><strong>Tax:</strong> <a id="tax"></a>
-      <br><strong>Shipping:</strong><a id="shipping"></a>
-      <br> <strong>Total:</strong> <a id="total"></a>
-    </p>
-
+    <div id="cart-totals">
+        <p><strong>Subtotal: </strong> <a id="subtotal"></a>
+          <br><strong>Tax: </strong> <a id="tax"></a>
+          <br><strong>Shipping: </strong><a id="shipping"></a>
+          <br> <strong>Total: </strong> <a id="total"></a>
+        </p>
+    </div>
     <h3>Information</h3>
-    <form id="checkout-form" name="checkout-form" action="checkpage.html" method="GET">
+    <form id="checkout-form" name="checkout-form" action="../checkpage/index.html" method="POST">
       <label for="fname">First Name:</label><br>
       <input required id="fname" type="text" name="fname"><br>
       <label for="lname">Last Name:</label><br>

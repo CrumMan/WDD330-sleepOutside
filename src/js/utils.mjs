@@ -107,7 +107,6 @@ export async function populate_totals(category){
     const tax = .06 * subtotal
     const  shipping = subtotal <= 35 ? 5 : subtotal * .13;
     const total = subtotal + tax + shipping;
-    console.log(subtotal);
     document.getElementById('subtotal').textContent = subtotal.toFixed(2);
     document.getElementById('tax').textContent = tax.toFixed(2);
     document.getElementById('shipping').textContent = shipping.toFixed(2);

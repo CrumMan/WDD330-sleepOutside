@@ -90,7 +90,7 @@ p {
   margin-top: -1.3em;
 }
 
-.logo--square > div {
+.logo--square>div {
   margin-top: -1.7em;
 }
 
@@ -121,6 +121,7 @@ button {
   padding-top: 1em;
   position: relative;
   text-align: center;
+  display: inline-block;
 }
 
 .cart svg {
@@ -129,6 +130,24 @@ button {
 
 .cart:hover svg {
   fill: gray;
+}
+
+.cart sup {
+  background-color: var(--tertiary-color);
+  color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 8px;
+  right: -8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+}
+
+.cart:hover sup {
+  background-color: gray;
 }
 
 /* End cart icon styles */
@@ -240,6 +259,13 @@ button {
   grid-row: 2;
   grid-column: 3;
 }
+
+/* start cart total styles */
+.cart-total-container {
+  visibility: hidden;
+}
+
+/* end cart total styles */
 
 @media screen and (min-width: 500px) {
   body {

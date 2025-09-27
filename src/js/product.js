@@ -1,7 +1,9 @@
-import { setLocalStorage, getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  loadHeaderFooter,
+} from "./utils.mjs";
 import ProductData from "/js/ProductData.mjs";
-
-
 
 let selectedItemsRaw = localStorage.getItem("selectedItems");
 let selectedItems = [];
@@ -13,7 +15,9 @@ if (selectedItemsRaw && selectedItemsRaw !== "undefined") {
     console.error("Error parsing selectedItems:", e);
   }
 } else {
-  console.warn("selectedItems was undefined or missing. Resetting to empty array.");
+  console.warn(
+    "selectedItems was undefined or missing. Resetting to empty array.",
+  );
   selectedItems = [];
   localStorage.setItem("selectedItems", JSON.stringify(selectedItems)); // optional reset
 }
@@ -29,7 +33,7 @@ function addProductToCart(product) {
     existingItem.quantity += 1;
   }
   //reruns loadheaderfooter to update cart count
-  loadHeaderFooter()
+  loadHeaderFooter();
 }
 
 async function addToCartHandler(e) {
@@ -42,6 +46,6 @@ setTimeout(() => {
   document
     .getElementById("addToCart")
     .addEventListener("click", addToCartHandler);
-}, 100);
+}, 500);
 
 loadHeaderFooter();

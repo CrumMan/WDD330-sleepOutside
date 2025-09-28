@@ -53,31 +53,9 @@
       <label for="zip">ZipCode:</label><br>
       <input required id="zip" min="100000" max="999999" type="number" name="zip"><br>
       <Label for="cardNumber">Credit Card Number:</Label><br>
-      <input required id="cardNumber" type="number" min="1000000000000000" max="9999999999999999" name="cardNumber"><br>
-      <label for="expiration">Expiration Date (MM/YY):</label>
-      <select name="ExpirationMonth">
-        <option value="01">01</option>
-        <option value="02">02</option>
-        <option value="03">03</option>
-        <option value="04">04</option>
-        <option value="05">05</option>
-        <option value="06">06</option>
-        <option value="07">07</option>
-        <option value="08">08</option>
-        <option value="09">09</option>
-        <option value="10">10</option>
-        <option value="11">11</option>
-        <option value="12">12</option>
-      </select>
-      <select name="ExpirationYear">
-        <option value="25">25</option>
-        <option value="26">26</option>
-        <option value="27">27</option>
-        <option value="28">28</option>
-        <option value="29">29</option>
-        <option value="30">30</option>
-        <option value="31">31</option>
-      </select><br>
+      <input type="text" name="cardNumber" id="cardNumber" required><br>
+      <label for="expiration">Expiration</label><br>
+      <input type="text" name="expiration" id="expiration" required><br>
       <label for="code">CVV:</label><br>
       <input required id="code" min="100" max="999" type="number" name="code"><br>
       <input id="submit" type="submit" value="Submit">

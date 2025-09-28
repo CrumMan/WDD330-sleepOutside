@@ -1,5 +1,5 @@
 import { getLocalStorage, loadHeaderFooter,populate_totals} from "./utils.mjs";
-import { packageItems} from "./CheckoutProcess.MJS";
+import { packageItems} from "./CheckoutProcess.mjs";
 
 const checkout_form = document.getElementById("checkout-form")
 

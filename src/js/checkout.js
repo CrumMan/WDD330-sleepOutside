@@ -1,14 +1,17 @@
-import { getLocalStorage, loadHeaderFooter,populate_totals} from "./utils.mjs";
-import { packageItems} from "./CheckoutProcess.MJS";
-import CheckoutProcess from "./CheckoutProcess.MJS";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
+import CheckoutProcess from "./CheckoutProcess.mjs";
 
-const order = new CheckoutProcess("cartItems","#cart-totals")
+const order = new CheckoutProcess("selectedItems","#cart-totals")
 const checkout_form = document.querySelector('#checkout-form');
+order.init();
 
 checkout_form.addEventListener('submit', function (event) {
     event.preventDefault();
-    order.CheckoutProcess();
+    order.checkout();
   })
+  document
+  .querySelector("#zip")
+  .addEventListener("blur", order.calculateOrderTotal.bind(order));
 
 function cartItemTemplate(item) {
     const newItem = `<li class='cart-card divider'>
@@ -29,8 +32,6 @@ function cartItemTemplate(item) {
 
     return newItem;
 }
-
-populate_totals("selectedItems");
 
 function renderCartContents() {
     const cartItems = getLocalStorage("selectedItems");
@@ -59,6 +60,5 @@ function renderCartContents() {
 
 }
 
-populate_totals("selectedItems");
 renderCartContents();
 loadHeaderFooter();

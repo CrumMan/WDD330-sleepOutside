@@ -18,7 +18,7 @@ export function packageItems(items) {
     // An Array.map would be perfect for this process.
     return converted_items;
 }
-
+//setting up netlify
 export default class CheckoutProcess {
     constructor(key, outputSelector) {
         this.key = key;

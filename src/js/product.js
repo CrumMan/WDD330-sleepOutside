@@ -1,8 +1,11 @@
-import { setLocalStorage, getLocalStorage, loadHeaderFooter, getParam } from "./utils.mjs";
+import {
+  setLocalStorage,
+  getLocalStorage,
+  loadHeaderFooter,
+  getParam,
+} from "./utils.mjs";
 import ProductData from "/js/ProductData.mjs";
 import ProductDetails from "./ProductDetails.mjs";
-
-
 
 let selectedItemsRaw = localStorage.getItem("selectedItems");
 let selectedItems = [];
@@ -14,7 +17,9 @@ if (selectedItemsRaw && selectedItemsRaw !== "undefined") {
     console.error("Error parsing selectedItems:", e);
   }
 } else {
-  console.warn("selectedItems was undefined or missing. Resetting to empty array.");
+  console.warn(
+    "selectedItems was undefined or missing. Resetting to empty array.",
+  );
   selectedItems = [];
   localStorage.setItem("selectedItems", JSON.stringify(selectedItems)); // optional reset
 }
@@ -51,5 +56,4 @@ setTimeout(() => {
   document
     .getElementById("add-to-cart")
     .addEventListener("click", addToCartHandler);
-}, 100);
-
+}, 500);

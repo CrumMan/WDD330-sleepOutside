@@ -1,33 +1,58 @@
-import { setLocalStorage } from "./utils.mjs";
-import ProductData from "./ProductData.mjs";
-const savedItems = localStorage.getItem("selectedItems");
-let selectedItems = savedItems === null ? [] : JSON.parse(savedItems);
+import { setLocalStorage, getLocalStorage, loadHeaderFooter, getParam } from "./utils.mjs";
+import ProductData from "/js/ExternalServices.mjs";
+import ProductDetails from "./ProductDetails.mjs";
+
+
+
+let selectedItemsRaw = localStorage.getItem("selectedItems");
+let selectedItems = [];
+
+if (selectedItemsRaw && selectedItemsRaw !== "undefined") {
+  try {
+    selectedItems = JSON.parse(selectedItemsRaw);
+  } catch (e) {
+    console.error("Error parsing selectedItems:", e);
+  }
+} else {
+  console.warn("selectedItems was undefined or missing. Resetting to empty array.");
+  selectedItems = [];
+  localStorage.setItem("selectedItems", JSON.stringify(selectedItems)); // optional reset
+}
+
+loadHeaderFooter();
 
 const dataSource = new ProductData("tents");
+console.log(dataSource);
+const productID = getParam("product");
+console.log(productID);
 
-function addProductToCart(product) {
+const product = new ProductDetails(productID, dataSource);
+product.init();
+
+async function addProductToCart(product) {
   const existingItem = selectedItems.find((item) => item.Id === product.Id);
-  let productWithQuantity = product.quantity;
   if (!existingItem) {
-    productWithQuantity = product.quantity = 1;
-    product.productWithQuantity;
+    product.quantity = 1;
     selectedItems.push(product);
   } else {
     existingItem.quantity += 1;
   }
+  //reruns loadheaderfooter to update cart count
+  await loadHeaderFooter();
+  const cartSup = document.getElementById("cart-sup");
+  cartSup.classList.add("animate");
+  setTimeout(() => cartSup.classList.remove("animate"), 300);
 }
 
-// add to cart button event handler
 async function addToCartHandler(e) {
   const product = await dataSource.findProductById(e.target.dataset.id);
   addProductToCart(product);
-  let stringarray = JSON.stringify(selectedItems);
-  localStorage.setItem("selectedItems", stringarray);
+  setLocalStorage("selectedItems", selectedItems);
 }
 
-// add listener to Add to Cart button
 setTimeout(() => {
   document
-    .getElementById("addToCart")
+    .getElementById("add-to-cart")
     .addEventListener("click", addToCartHandler);
 }, 100);
+
